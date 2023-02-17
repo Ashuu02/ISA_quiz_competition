@@ -11,6 +11,25 @@ body {
   background: #0c192c;
 }
 
+body {
+  background: linear-gradient(-45deg, #2c0c1f, #0c192c, #2c2c0c, black);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 ::selection {
   color: #fff;
   background: #007bff;
@@ -35,6 +54,8 @@ body {
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
 }
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /* Button */
@@ -216,6 +237,8 @@ button:hover #clip {
   }
 }
 
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
 .buttonTag {
   font-size: 25px;
   font-weight: 500;
@@ -230,7 +253,7 @@ button:hover #clip {
 
 .info_box {
   width: 540px;
-  background: #fff;
+  background: #ffffff;
   border-radius: 5px;
   transform: translate(-50%, -50%) scale(0.9);
   opacity: 0;
@@ -554,9 +577,52 @@ footer button.show {
 .buttons button.quit {
   color: #007bff;
   background: #fff;
+  /* box-shadow: 0 0.625em 1em 0 rgba(33, 220, 98, 0.35); */
+
 }
 
 .buttons button.quit:hover {
   color: #fff;
   background: #007bff;
+}
+
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* quit button */
+
+.quit {
+  padding: 1em 2em;
+  border: none;
+  border-radius: 5px;
+  color: #007bff;
+  transition: all 1500ms;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  outline: 2px solid #007bff;
+}
+
+.quit:hover {
+  color: #ffffff;
+  transform: scale(1.07);
+  outline: 2px solid #007bff33;
+  /* box-shadow: 4px 5px 17px -4px #007bff; */
+}
+
+.quit::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #007bff;
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 1000ms;
+}
+
+button:hover::before {
+  width: 250%;
 }
